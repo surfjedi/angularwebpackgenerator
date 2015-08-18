@@ -1,9 +1,12 @@
 'use strict';
 
 var path = require('path');
+var yeoman = require('yeoman-generator');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 var os = require('os');
+var fs = require('fs');
+var mkdirp = require('mkdirp');
 
 
 describe('angularwebpackgenerator:app', function () {
@@ -34,7 +37,7 @@ describe('angularwebpackgenerator:app', function () {
 
 describe('angularwebpackgenerator:controller', function() {
     before(function (done) {
-        helpers.run(path.join(__dirname, '..','generators','controller'))
+        helpers.run(path.join(__dirname, '..', 'generators', 'controller'))
             .withOptions({ skipInstall: true })
             .withPrompts({})
             .on('end', done);
@@ -48,4 +51,23 @@ describe('angularwebpackgenerator:controller', function() {
         ]);
     });
 
+
 });
+
+describe('angularwebpackgenerator:route', function() {
+
+    before(function(done) {
+        helpers.run(path.join(__dirname, '..', 'generators', 'route'))
+            .withOptions({ skipInstall: true })
+            .withPrompts({})
+            .on('end', done);
+    });
+
+    it('create file route', function() {
+        assert.file([
+            path.join('src', 'pages', 'home', 'home.routing.js')
+        ]);
+    });
+});
+
+
