@@ -48,7 +48,6 @@ var AngularWebPackAngularJs = yeoman.generators.Base.extend({
         } else {
             console.error('Page '+this.pageName+' not exists in src/pages');
         }
-
     }
 });
 
