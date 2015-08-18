@@ -40,7 +40,7 @@ describe('angularwebpackgenerator:controller', function() {
     });
 
     it('creates files', function() {
-        asset.file([
+        assert.file([
             path.join('src', 'pages', 'home', 'controllers', 'index.controller.js'),
             path.join('src', 'pages', 'home', 'controllers', 'index.controller.spec.js'),
             path.join('src', 'pages', 'home', 'views', 'index.html')
