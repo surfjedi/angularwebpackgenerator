@@ -1,4 +1,4 @@
-# generator-angularwebpackgenerator [![Build Status](https://secure.travis-ci.org/brenodouglas/generator-angularwebpackgenerator.png?branch=master)](https://travis-ci.org/brenodouglas/generator-angularwebpackgenerator)
+# generator-angularwebpackgenerator [![Build Status](https://travis-ci.org/brenodouglas/angularwebpackgenerator.svg)](https://travis-ci.org/brenodouglas/angularwebpackgenerator)
 
 > [Yeoman](http://yeoman.io) generator
 
