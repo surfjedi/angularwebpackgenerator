@@ -3,6 +3,7 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 var _ = require('lodash');
 var fs = require('fs');
+var mkdirp = require('mkdirp');
 
 
 var AngularWebPackAngularJs = yeoman.generators.Base.extend({
@@ -34,20 +35,26 @@ var AngularWebPackAngularJs = yeoman.generators.Base.extend({
 
     createFiles: function() {
 
-        if (fs.existsSync(path.join("src", "pages", this.pageName))) {
-            var context = {
-                controllerName: this.controllerName,
-                moduleName: this.moduleName
-            };
-
-            this.template("_controller.js", path.join("src", "pages", this.pageName, "controllers", this.moduleName+'.controller.js'), context);
-            this.template("_controller.spec.js", path.join("src", "pages", this.pageName, "controllers", this.moduleName+'.controller.spec.js'), context);
-            this.template("_index.html", path.join("src", "pages", this.pageName, "views", this.moduleName+'.html'), context);
-
-            console.log("create file sucess, register route for controller in "+this.pageName+".routing.js !");
-        } else {
-            console.error('Page '+this.pageName+' not exists in src/pages');
+        if (! fs.existsSync(path.join("src", "pages", this.pageName))) {
+            mkdirp.sync(path.join("src"));
+            mkdirp.sync(path.join("src", "core"));
+            mkdirp.sync(path.join("src", "pages"));
+            mkdirp.sync(path.join("src", "home"));
+            mkdirp.sync(path.join("src", "home", "controllers"));
+            mkdirp.sync(path.join("src", "home", "views"));
         }
+
+        var context = {
+            controllerName: this.controllerName,
+            moduleName: this.moduleName
+        };
+
+        this.template("_controller.js", path.join("src", "pages", this.pageName, "controllers", this.moduleName+'.controller.js'), context);
+        this.template("_controller.spec.js", path.join("src", "pages", this.pageName, "controllers", this.moduleName+'.controller.spec.js'), context);
+        this.template("_index.html", path.join("src", "pages", this.pageName, "views", this.moduleName+'.html'), context);
+
+        console.log("create file sucess, register route for controller in "+this.pageName+".routing.js !");
+
     }
 });
 

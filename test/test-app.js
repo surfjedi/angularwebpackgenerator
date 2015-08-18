@@ -5,6 +5,7 @@ var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 var os = require('os');
 
+
 describe('angularwebpackgenerator:app', function () {
   before(function (done) {
     helpers.run(path.join(__dirname, '..','generators','app'))
@@ -35,7 +36,7 @@ describe('angularwebpackgenerator:controller', function() {
     before(function (done) {
         helpers.run(path.join(__dirname, '..','generators','controller'))
             .withOptions({ skipInstall: true })
-            .withPrompts({ controllerName: 'index', pageName: 'home' })
+            .withPrompts({})
             .on('end', done);
     });
 
@@ -45,5 +46,6 @@ describe('angularwebpackgenerator:controller', function() {
             path.join('src', 'pages', 'home', 'controllers', 'index.controller.spec.js'),
             path.join('src', 'pages', 'home', 'views', 'index.html')
         ]);
-    })
+    });
+
 });
