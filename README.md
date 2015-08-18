@@ -54,7 +54,7 @@ Available generators:
 
 To-Do:
 
-- [ ] angularwebpackgenerator:route
+- [x] angularwebpackgenerator:route
 - [ ] angularwebpackgenerator:service
 - [ ] angularwebpackgenerator:provider
 - [ ] angularwebpackgenerator:factory
