@@ -62,7 +62,7 @@ var AngularWebPackAngularJs = yeoman.generators.Base.extend({
             };
 
             this.template("_routing.js", path.join("src", "pages", this.pageName, this.pageName+'.routing.js'), context);
-        } else {
+        } else if (this.nameRoute.toString().) {
             var newRoute = [
                 "    .state('"+this.nameRoute+"', {",
                 "        url: '"+this.uri+"',",
@@ -75,8 +75,8 @@ var AngularWebPackAngularJs = yeoman.generators.Base.extend({
                 "                        let module = require('./controllers/"+this.moduleName+".controller');",
                 "                        $ocLazyLoad.load({name: '"+this.moduleName+".controller'});",
                 "                        resolve(module.controller);",
-                "                    )};",
-                "                )};",
+                "                    });",
+                "                });",
                 "            }",
                 "        }",
                 "   });"
