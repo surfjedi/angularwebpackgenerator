@@ -62,7 +62,7 @@ var AngularWebPackAngularJs = yeoman.generators.Base.extend({
             };
 
             this.template("_routing.js", path.join("src", "pages", this.pageName, this.pageName+'.routing.js'), context);
-        } else if (this.nameRoute.toString().) {
+        } else if (this.nameRoute.toString()) {
             var newRoute = [
                 "    .state('"+this.nameRoute+"', {",
                 "        url: '"+this.uri+"',",
