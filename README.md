@@ -59,10 +59,6 @@ To-Do:
 - [ ] angularwebpackgenerator:provider
 - [ ] angularwebpackgenerator:factory
 - [ ] angularwebpackgenerator:directive
-- [ ] angularwebpackgenerator:filter
-- [ ] angularwebpackgenerator:value
-- [ ] angularwebpackgenerator:constant
-- [ ] angularwebpackgenerator:decorator
 
 ### Getting To Know Yeoman
 

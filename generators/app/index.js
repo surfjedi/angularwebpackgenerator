@@ -66,6 +66,10 @@ var AngularWebPackAngularJs = yeoman.generators.Base.extend({
         this.copy('test/_test-context.js', path.join("test", "test-context.js"));
         this.copy('test/_karma.config.js', path.join("test", "karma.config.js"));
         this.copy('core/_bootstrap.js', path.join("src", "core", "bootstrap.js"));
+        this.copy('core/_core.directives.js', path.join("src", "core", "core.directives.js"));
+        this.copy('core/_core.factories.js', path.join("src", "core", "core.factories.js"));
+        this.copy('core/_core.providers.js', path.join("src", "core", "core.providers.js"));
+        this.copy('core/_core.services.js', path.join("src", "core", "core.services.js"));
         this.copy('pages/_home.routing.js', path.join("src", "pages", "home", "home.routing.js"));
         this.copy('pages/controllers/_home.controller.js', path.join("src", "pages", "home", "controllers", "home.controller.js"));
         this.copy('pages/controllers/_home.controller.spec.js', path.join("src", "pages", "home", "controllers", "home.controller.spec.js"));
