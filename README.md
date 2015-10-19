@@ -26,7 +26,7 @@ Yeoman travels light. He didn't pack any generators when he moved in. You can th
 To install generator-angularwebpackgenerator from npm, run:
 
 ```bash
-    npm install -g generator-angularwebpackgenerator
+    npm install -g angularwebpack
 ```
 
 Make a new directory, and cd into it:
