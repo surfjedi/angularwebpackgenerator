@@ -51,6 +51,7 @@ describe('angularwebpackgenerator:controller', function() {
         assert.file([
             path.join('src', 'pages', 'home', 'controllers', 'index.controller.js'),
             path.join('src', 'pages', 'home', 'controllers', 'index.controller.spec.js'),
+            path.join('src', 'pages', 'home', 'home.routing.js'),
             path.join('src', 'pages', 'home', 'views', 'index.html')
         ]);
     });

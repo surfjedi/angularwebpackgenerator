@@ -4,13 +4,12 @@ var yeoman = require('yeoman-generator');
 var _ = require('lodash');
 var fs = require('fs');
 var mkdirp = require('mkdirp');
-
+var util   = require('../util');
 
 var AngularWebPackAngularJs = yeoman.generators.Base.extend({
     promptUser: function() {
         var done = this.async();
         // have Yeoman greet the user
-        console.log(this.yeoman);
 
         var prompts = [
             {
@@ -40,6 +39,11 @@ var AngularWebPackAngularJs = yeoman.generators.Base.extend({
             mkdirp.sync(path.join("src", "pages"));
         }
 
+        if (! fs.existsSync(path.join("src", 'app.js')))  {
+            console.log('creating app.js');
+            this.copy('_app.js', path.join("src", 'app.js'));
+        }
+
         var context = {
             controllerName: this.controllerName,
             moduleName: this.moduleName
@@ -48,6 +52,12 @@ var AngularWebPackAngularJs = yeoman.generators.Base.extend({
         this.template("_controller.js", path.join("src", "pages", this.pageName, "controllers", this.moduleName+'.controller.js'), context);
         this.template("_controller.spec.js", path.join("src", "pages", this.pageName, "controllers", this.moduleName+'.controller.spec.js'), context);
         this.template("_index.html", path.join("src", "pages", this.pageName, "views", this.moduleName+'.html'), context);
+        this.template("_routing.js", path.join("src", "pages", this.pageName, this.pageName+'.routing.js'), context);
+
+        var template = "require('./pages/"+this.pageName+"/"+this.moduleName+".routing').name,";
+
+        if(fs.existsSync(path.join("src", 'app.js')))
+            util.rewriteAppFile(template, path.join("src", "app.js"));
 
         console.log("create file sucess, register route for controller in "+this.pageName+".routing.js !");
 
