@@ -44,18 +44,6 @@ var AngularWebPackAngularJs = yeoman.generators.Base.extend({
         mkdirp.sync(path.join("src", "pages"), function (err) {
             if (err) console.error(err);
         });
-
-        mkdirp.sync(path.join("src", "home"), function (err) {
-            if (err) console.error(err);
-        });
-
-        mkdirp.sync(path.join("src", "home", "controllers"), function (err) {
-            if (err) console.error(err);
-        });
-
-        mkdirp.sync(path.join("src", "home", "views"), function (err) {
-            if (err) console.error(err);
-        });
     },
 
     copyFiles: function() {
