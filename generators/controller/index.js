@@ -38,9 +38,6 @@ var AngularWebPackAngularJs = yeoman.generators.Base.extend({
         if (! fs.existsSync(path.join("src", "pages", this.pageName))) {
             mkdirp.sync(path.join("src"));
             mkdirp.sync(path.join("src", "pages"));
-            mkdirp.sync(path.join("src", "home"));
-            mkdirp.sync(path.join("src", "home", "controllers"));
-            mkdirp.sync(path.join("src", "home", "views"));
         }
 
         var context = {
