@@ -52,12 +52,18 @@ var AngularWebPackAngularJs = yeoman.generators.Base.extend({
         this.template("_controller.js", path.join("src", "pages", this.pageName, "controllers", this.moduleName+'.controller.js'), context);
         this.template("_controller.spec.js", path.join("src", "pages", this.pageName, "controllers", this.moduleName+'.controller.spec.js'), context);
         this.template("_index.html", path.join("src", "pages", this.pageName, "views", this.moduleName+'.html'), context);
-        this.template("_routing.js", path.join("src", "pages", this.pageName, this.pageName+'.routing.js'), context);
+
+        if(! fs.existsSync(path.join("src", "pages", this.pageName, this.pageName+'.routing.js'))) {
+            console.log('creating routing file of page ');
+            this.template("_routing.js", path.join("src", "pages", this.pageName, this.pageName+'.routing.js'), context);
+        }
 
         var template = "require('./pages/"+this.pageName+"/"+this.moduleName+".routing').name,";
 
-        if(fs.existsSync(path.join("src", 'app.js')))
+        if(fs.existsSync(path.join("src", 'app.js'))) {
+            console.log("alterando app.js");
             util.rewriteAppFile(template, path.join("src", "app.js"));
+        }
 
         console.log("create file sucess, register route for controller in "+this.pageName+".routing.js !");
 
