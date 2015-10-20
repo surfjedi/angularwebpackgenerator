@@ -1,9 +1,7 @@
 'use strict';
 
-function <%= moduleName %>Routing($urlRouterProvider, $stateProvider) {
-    $urlRouterProvider.otherwise('/<%= moduleName %>');
-
-    $stateProvider.state('<%= moduleName %>', {
+function <%= moduleName %>Routing($stateProvider) {
+    $stateProvider.state('app.<%= moduleName %>', {
         url: '/<%= moduleName %>',
         template: require('./views/<%= moduleName %>.html'),
         controller: '<%= controllerName %>Controller as vm',
@@ -22,4 +20,4 @@ function <%= moduleName %>Routing($urlRouterProvider, $stateProvider) {
 
 }
 
-export default angular.module('<%= moduleName %>.routing', []).config(<%= moduleName %>Routing);
+export default angular.module('<%= moduleName %>.routing', []).config(['$stateProvider', <%= moduleName %>Routing]);

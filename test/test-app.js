@@ -33,7 +33,13 @@ describe('angularwebpackgenerator:app', function () {
         path.join("src", "pages", "home", "home.routing.js"),
         path.join("src", "pages", "home", "controllers", "home.controller.js"),
         path.join("src", "pages", "home", "controllers", "home.controller.spec.js"),
-        path.join("src", "pages", "home", "views", "home.html")
+        path.join("src", "pages", "home", "views", "home.html"),
+        path.join("src", "pages", "login", "login.routing.js"),
+        path.join("src", "pages", "login", "controllers", "login.controller.js"),
+        path.join("src", "pages", "login", "controllers", "login.controller.spec.js"),
+        path.join("src", "pages", "login", "views", "login.html"),
+        path.join("src", "views", "app.html"),
+        path.join("src", "views", "login.html")
     ]);
   });
 });

@@ -11,7 +11,6 @@ var AngularWebPackAngularJs = yeoman.generators.Base.extend({
     promptUser: function() {
         var done = this.async();
         // have Yeoman greet the user
-        console.log(this.yeoman);
 
         var prompts = [{
           name: 'appName',
@@ -44,9 +43,18 @@ var AngularWebPackAngularJs = yeoman.generators.Base.extend({
         mkdirp.sync(path.join("src", "pages"), function (err) {
             if (err) console.error(err);
         });
+        
+        mkdirp.sync(path.join("src", "views"), function (err) {
+            if (err) console.error(err);
+        });
     },
 
     copyFiles: function() {
+        this.copy('editorconfig', '.editorconfig');
+        this.copy('jshintrc', '.jshintrc');
+        this.copy('travis.yml', '.travis.yml');
+        this.copy('bowerrc', '.bowerrc');
+        this.copy('gitignore', '.gitignore');
         this.copy('_webpack.config.js', "webpack.config.js");
         this.copy('_package.json', "package.json");
         this.copy('_bower.json', "bower.json");
@@ -58,10 +66,19 @@ var AngularWebPackAngularJs = yeoman.generators.Base.extend({
         this.copy('core/_core.factories.js', path.join("src", "core", "core.factories.js"));
         this.copy('core/_core.providers.js', path.join("src", "core", "core.providers.js"));
         this.copy('core/_core.services.js', path.join("src", "core", "core.services.js"));
-        this.copy('pages/_home.routing.js', path.join("src", "pages", "home", "home.routing.js"));
-        this.copy('pages/controllers/_home.controller.js', path.join("src", "pages", "home", "controllers", "home.controller.js"));
-        this.copy('pages/controllers/_home.controller.spec.js', path.join("src", "pages", "home", "controllers", "home.controller.spec.js"));
-        this.copy('pages/views/_home.html', path.join("src", "pages", "home", "views", "home.html"));
+        
+        this.copy('views/app.html', path.join("src", "views", "app.html"));
+        this.copy('views/login.html', path.join("src", "views", "login.html"));
+        
+        this.copy('pages/home/_home.routing.js', path.join("src", "pages", "home", "home.routing.js"));
+        this.copy('pages/home/controllers/_home.controller.js', path.join("src", "pages", "home", "controllers", "home.controller.js"));
+        this.copy('pages/home/controllers/_home.controller.spec.js', path.join("src", "pages", "home", "controllers", "home.controller.spec.js"));
+         this.copy('pages/home/views/_home.html', path.join("src", "pages", "home", "views", "home.html"));
+        
+        this.copy('pages/login/views/_login.html', path.join("src", "pages", "login", "views", "login.html"));
+        this.copy('pages/login/_login.routing.js', path.join("src", "pages", "login", "login.routing.js"));
+        this.copy('pages/login/controllers/_login.controller.js', path.join("src", "pages", "login", "controllers", "login.controller.js"));
+        this.copy('pages/login/controllers/_login.controller.spec.js', path.join("src", "pages", "login", "controllers", "login.controller.spec.js"));
 
         var context = {
             app_name: this.appName

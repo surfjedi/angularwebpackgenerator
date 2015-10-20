@@ -1,9 +1,7 @@
 'use strict';
 
-function homeRouting($urlRouterProvider, $stateProvider) {
-    $urlRouterProvider.otherwise('/home');
-
-    $stateProvider.state('home', {
+function homeRouting($stateProvider) {
+    $stateProvider.state('app.home', {
         url: '/home',
         template: require('./views/home.html'),
         controller: 'HomeController as vm',
@@ -22,4 +20,4 @@ function homeRouting($urlRouterProvider, $stateProvider) {
 
 }
 
-export default angular.module('home.routing', []).config(homeRouting);
+export default angular.module('home.routing', []).config(['$stateProvider', homeRouting]);
