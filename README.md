@@ -45,19 +45,18 @@ Run
     npm run devs 
 ```
 
-
 ## Generators
 Available generators:
 
-* angularwebpackgenerator(see angularwebpackgenerator:app)
-* angularwebpackgenerator:controller
-* angularwebpackgenerator:route
+* yo angularwebpack (see angularwebpack:app)
+* yo angularwebpack:controller
+* yo angularwebpack:route
 
 To-Do:
-- [ ] angularwebpackgenerator:service
-- [ ] angularwebpackgenerator:provider
-- [ ] angularwebpackgenerator:factory
-- [ ] angularwebpackgenerator:directive
+- [ ] yo angularwebpack:service
+- [ ] yo angularwebpack:provider
+- [ ] yo angularwebpack:factory
+- [ ] yo angularwebpack:directive
 
 ### Getting To Know Yeoman
 
